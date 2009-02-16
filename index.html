@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>Carousel demo</title>
+	<link rel="stylesheet" href="stylesheets/carousel.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js"></script>
+	<script type="text/javascript" src="javascripts/carousel.js"></script>
+</head>
+
+<body>
+
+<h1>Carousel demo</h1>
+<p>Usage:</p>
+<pre>
+    <code>
+        document.observe('dom:loaded', function() { 
+            car = new Carousel('carouselDemo');
+            car.setCallback(reloadAds); // optional
+        });
+        // note: read the docs in carousel.js
+    </code>
+</pre>
+
+<!-- First Carousel -->
+<ul id="carouselDemo" class="carousel">
+    <li class="step" title="White Tiger 1"><img src="images/tiger1.jpg" width="468" height="320" alt="" /></li>
+    <li class="step" title="White Tiger 2"><img src="images/tiger2.jpg" width="468" height="320" alt="" /></li>
+    <li class="step" title="White Tiger 3"><img src="images/tiger3.jpg" width="468" height="320" alt="" /></li>
+    <li class="step" title="White Tiger 4"><img src="images/tiger4.jpg" width="468" height="320" alt="" /></li>
+    <li class="step" title="White Tiger 5"><img src="images/tiger5.jpg" width="468" height="320" alt="" /></li>
+</ul>
+
+<!-- Second Carousel -->
+<ul id="carouselDemo2" class="carousel">
+    <li class="step" title="White Tiger 1"><img src="images/tiger1.jpg" width="468" height="320" alt="" /></li>
+    <li class="step" title="White Tiger 2"><img src="images/tiger2.jpg" width="468" height="320" alt="" /></li>
+    <li class="step" title="White Tiger 3"><img src="images/tiger3.jpg" width="468" height="320" alt="" /></li>
+    <li class="step" title="White Tiger 4"><img src="images/tiger4.jpg" width="468" height="320" alt="" /></li>
+    <li class="step" title="White Tiger 5"><img src="images/tiger5.jpg" width="468" height="320" alt="" /></li>
+</ul>
+
+<p>Clicks counter: <span id="nodesRemaining">0</span>.</p>
+
+
+<script type="text/javascript">
+
+    // Test callback function
+    
+    /** 
+    * to track the number of image views,
+    * every time a user clicks next/previous
+    * on any carousel, it increments the number of views
+    * and triggers reloadAds() after every 3rd change.
+    **/
+    var numOfViews = 0;
+
+    function reloadAds() {
+        numOfViews++;
+        $('nodesRemaining').update(numOfViews);
+        if (numOfViews == 3) {
+          alert('Hey, now we could do something fancy here.\nAJAX call or something. Depends on you.');
+          numOfViews = 0;
+          $('nodesRemaining').update(numOfViews);
+        }
+    }
+
+    document.observe('dom:loaded', function() { 
+      // 1st carousel
+      car = new Carousel('carouselDemo');
+      car.setCallback(reloadAds);
+      // 2nd carousel
+      car2 = new Carousel('carouselDemo2');
+      car2.setCallback(reloadAds);
+
+    });
+    
+</script>
+</body>
+</html>

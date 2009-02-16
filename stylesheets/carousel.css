@@ -1,0 +1,36 @@
+ul.carousel,
+ul.carousel li.step {
+  width: 468px;
+  height: 320px;
+}
+
+ul.carousel li.step {
+  float: left;
+  clear: none;
+}
+
+ul.carousel {
+  overflow: hidden;
+  padding: 0;
+}
+
+div.carouselControl {
+  height: 20px;
+}
+
+div.carouselControl a.button {
+  display: block;
+  width: 20px;
+  height: 20px;
+  text-indent: -9999px;
+}
+
+div.carouselControl a.button.next {
+  float: right;
+  background: blue;
+}
+
+div.carouselControl a.button.prev {
+  float: left;
+  background: red;
+}
