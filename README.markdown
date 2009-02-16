@@ -1,6 +1,6 @@
 Carousel for Prototype JS
 -------------------------
- * Author: Attila Györffy (http://attilagyorffy.com)
+ * Author: [Attila Györffy](http://attilagyorffy.com)
  * License: [GNU General Public License](http://www.gnu.org/licenses/gpl.html)
 
 Dependencies
